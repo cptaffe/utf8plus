@@ -10,7 +10,7 @@
 
 namespace utf8 {
 
-static size_t strlen(std::string *str);
+size_t strlen(std::string *str);
 
 class rune {
 public:
@@ -60,11 +60,10 @@ public:
 };
 
 class parser {
-	char *str;
-	size_t index;
+	void *c_parser; // c parser struct
 
 public:
-	parser(std::string *str);
+	parser(std::string str);
 	~parser();
 	rune get();
 };
