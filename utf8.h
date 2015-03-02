@@ -14,6 +14,7 @@ size_t strlen(std::string *str);
 
 class rune {
 public:
+
 	class exception : public std::exception {
 	public:
 		enum errcode {
@@ -40,7 +41,7 @@ public:
 			this->code = code;
 		}
 	};
-
+	
 	int32_t value;
 
 	// static constructors
