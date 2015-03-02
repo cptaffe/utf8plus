@@ -60,6 +60,7 @@ public:
 };
 
 class parser {
+private:
 	void *c_parser; // c parser struct
 
 public:
