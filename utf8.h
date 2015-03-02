@@ -10,8 +10,6 @@
 
 namespace utf8 {
 
-const int32_t CODEPOINT_MAX = 0x10ffff;
-
 static size_t strlen(std::string *str);
 
 class rune {
@@ -42,8 +40,6 @@ public:
 			this->code = code;
 		}
 	};
-
-	static const size_t MAXLEN = 4;
 
 	int32_t value;
 
