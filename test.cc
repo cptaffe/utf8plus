@@ -1,4 +1,6 @@
 
+// Copyright (c) 2015 Connor Taffe
+
 #include "utf8.h"
 
 // testing purposes
