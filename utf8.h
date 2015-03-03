@@ -18,7 +18,6 @@ public:
 	class exception : public std::exception {
 	public:
 		enum errcode {
-			ERROR,
 			INVALID,
 			SHORT
 		};
@@ -26,9 +25,7 @@ public:
 		errcode code;
 
 		const char *what() const throw() {
-			if (code == ERROR) {
-				return "error";
-			} else if (code == INVALID) {
+			if (code == INVALID) {
 				return "invalid rune";
 			} else if (code == SHORT) {
 				return "memory shorter than rune length";
@@ -41,7 +38,7 @@ public:
 			this->code = code;
 		}
 	};
-	
+
 	int32_t value;
 
 	// static constructors

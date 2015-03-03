@@ -4,6 +4,7 @@
 #include "utf8.h"
 #include "utf8/utf8.h"
 
+#include <stdexcept>
 #include <cstring>
 #include <cstdio>
 
@@ -12,7 +13,7 @@ size_t utf8::strlen(std::string *str) {
 	if (len == utf8_CP_INVALID) {
 		throw utf8::rune::exception(utf8::rune::exception::INVALID);
 	} else if (len == utf8_CP_ERROR) {
-		throw utf8::rune::exception(utf8::rune::exception::ERROR);
+		throw std::logic_error("utf8_strlen indicated error");
 	} else {
 		return len;
 	}
@@ -27,7 +28,7 @@ int utf8::rune::len(const char byte) {
 	if (len == utf8_CP_INVALID) {
 		throw utf8::rune::exception(utf8::rune::exception::INVALID);
 	} else if (len == utf8_CP_ERROR) {
-		throw utf8::rune::exception(utf8::rune::exception::ERROR);
+		throw std::logic_error("utf8_runelen indicated error");
 	} else {
 		return len;
 	}
@@ -46,7 +47,7 @@ int32_t utf8::rune::decode() {
 	if (cp == utf8_CP_INVALID) {
 		throw utf8::rune::exception(utf8::rune::exception::INVALID);
 	} else if (cp == utf8_CP_ERROR) {
-		throw utf8::rune::exception(utf8::rune::exception::ERROR);
+		throw std::logic_error("utf8_decode indicated error");
 	} else {
 		return cp;
 	}
@@ -57,7 +58,7 @@ utf8::rune utf8::rune::encode(int32_t codepoint) {
 	if (rune.value == utf8_RUNE_INVALID) {
 		throw utf8::rune::exception(utf8::rune::exception::INVALID);
 	} else if (rune.value == utf8_RUNE_ERROR) {
-		throw utf8::rune::exception(utf8::rune::exception::ERROR);
+		throw std::logic_error("utf8_encode indicated error");
 	} else if (rune.value == utf8_RUNE_SHORT) {
 		throw utf8::rune::exception(utf8::rune::exception::SHORT);
 	} else {
@@ -74,7 +75,7 @@ utf8::rune utf8::rune::get(const void *mem, size_t size) {
 	if (rune.value == utf8_RUNE_INVALID) {
 		throw utf8::rune::exception(utf8::rune::exception::INVALID);
 	} else if (rune.value == utf8_RUNE_ERROR) {
-		throw utf8::rune::exception(utf8::rune::exception::ERROR);
+		throw std::logic_error("utf8_getr indicated error");
 	} else if (rune.value == utf8_RUNE_SHORT) {
 		throw utf8::rune::exception(utf8::rune::exception::SHORT);
 	} else {
@@ -95,7 +96,7 @@ utf8::rune utf8::parser::get() {
 	if (rune.value == utf8_RUNE_INVALID) {
 		throw utf8::rune::exception(utf8::rune::exception::INVALID);
 	} else if (rune.value == utf8_RUNE_ERROR) {
-		throw utf8::rune::exception(utf8::rune::exception::ERROR);
+		throw std::logic_error("utf8_pget indicated error");
 	} else if (rune.value == utf8_RUNE_SHORT) {
 		throw utf8::rune::exception(utf8::rune::exception::SHORT);
 	} else {
